@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .section {
+            width: 100%;
+            height: 100vh;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .main {
+            background-color: rgb(236, 236, 236);
+            border-radius: 10px;
+            margin-top: 10px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .main__img {
+            width: 60%;
+            height: 150px;
+        }
+        .main__box {
+            width: 80%;
+        }
+        .main__input {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+
+        }
+        .main__input:focus {
+            outline: none;
+        }
+        .main__btn {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .natija {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<a href="/" class="btn btn-link">Back 🔙</a>
+    <section class="section">
+        <div class="container">
+            <div class="main">
+                <h3 class="main__title">
+                    Uch fazali elektr uzatish liniyasida aktiv va reaktiv quvvat isrofi quyidagi formulalardan aniqlanadi:
+                </h3>
+                <img src="../static/rasm.jpg" alt="main__img" class="main__img">
+                <img src="../static/3840x1080-Wallpaper-012.jpg" style="width:200px;height:60px">
+                <p class="main__text">
+                    bu erda: P, Q – yuklamaning aktiv va reaktiv quvvatlari kW, kVAr;
+                    <br>
+                    U<sub>x</sub> - liniyaning nominal kuchlanishi, kV;
+                    <br>
+                    R, X – bir fazaning aktiv va reaktiv qarshiliklari, Om.
+
+                    Bunda: I<sub>x</sub> - o'tkazgichdan o'tadigan tokning hisobiy qiymati, A; t<sub>n</sub> - q.t tokining
+                    vaqt davomiyligining keltirilgan qiymati, s; S - o'zgarmas son (po'lat uchun S=74, mis uchun S=195, mis
+                    simli kabellar uchun S=182, alyuminiy simli kabellar uchun S= 112).
+                </p>
+                <h3 class="natija"></h3>
+                <div class="main__box">
+                    <label>
+                        <input type="number" class="main__input input1"
+                               placeholder="O'tkazgichdan o'tadigan tokning hisobiy qiymatini kiriting...">
+                    </label>
+                    <label>
+                        <input type="number" class="main__input input2"
+                               placeholder="q.t tokining vaqt davomiyligining keltirgan qiymatini kiriting...">
+                    </label>
+                    <label>
+                        <input type="number" class="main__input input3" placeholder="S - ni kiriting...">
+                    </label>
+
+                    <button class="main__btn">Hisoblash</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let input1 = document.querySelector('.input1');
+        let input2 = document.querySelector('.input2');
+        let input3 = document.querySelector('.input3');
+        let btn = document.querySelector('.main__btn');
+        let natija = document.querySelector('.natija');
+
+        btn.addEventListener('click', ()=> {
+            let effect = input1.value * (Math.sqrt(input2.value) / input3.value)
+            console.log(natija);
+            natija.style.display = 'block'
+            natija.innerHTML= `Natija: ${effect}`
+        })
+    </script>
+</body>
+</html>
